@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/savanrajyaguru/ecommerce-go-order-service/proto/user";
+
+service UserService {
+  rpc ValidateUser (ValidateUserRequest) returns (ValidateUserResponse);
+}
+
+message ValidateUserRequest {
+  string token = 1;
+  string user_id = 2; // Optional validation by ID
+}
+
+message ValidateUserResponse {
+  bool valid = 1;
+  string user_id = 2;
+  string role = 3;
+}

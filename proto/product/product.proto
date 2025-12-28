@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package product;
+
+option go_package = "github.com/savanrajyaguru/ecommerce-go-order-service/proto/product";
+
+service ProductService {
+  rpc ValidateProduct (ValidateProductRequest) returns (ValidateProductResponse);
+}
+
+message ValidateProductRequest {
+  string product_id = 1;
+}
+
+message ValidateProductResponse {
+  bool exists = 1;
+  double price = 2;
+  string name = 3;
+}
